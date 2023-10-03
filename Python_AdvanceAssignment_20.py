@@ -1,4 +1,36 @@
 #%%
+"""1. Create a function based on the input and output. Look at the examples,
+there is a pattern."""
+def secret(string):
+    l=string.split(".")
+    l=l[1:]
+    op="<p class="+"'"+" ".join(l)+"'"+"></p>"
+    return op
+#%%
+secret("p.four.five")
+#%%
+'''2. Create a function which counts how many 
+lone 1s appear in a given number. Lone means the number doesn't appear twice or more in a row.'''
+def count_lone_ones(n):
+    st_n=str(n)
+    count=0
+    one=False
+    for i in list(st_n):
+        if i=="1" and one==False:
+            one=True
+            count=count+1
+        elif i=="1" and one==True:
+            one=True
+            if count-1 <0:
+                count=0
+            else:
+                count=count-1
+        else:
+            one=False
+    return count
+#%%
+count_lone_ones(462)
+#%%
 """3. Write a method that accepts two integer parameters rows and cols. The output is a 2d array of numbers displayed in column-major order,
  meaning the numbers shown increase sequentially down each column and wrap to the top of the next column to the right once the bottom of the current column is reached."""
 def printGrid(row,col):
